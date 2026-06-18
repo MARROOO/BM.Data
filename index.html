@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script>try{document.documentElement.classList.add('js');}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariem Bejaoui — Data Analyst &amp; Analytics Engineer</title>
+<meta name="description" content="Portfolio de Mariem Bejaoui, Data Analyst &amp; Analytics Engineer — SQL, Python, Power BI. Stagiaire E-commerce Data Analyst chez RIMOWA, Groupe LVMH.">
+<meta property="og:title" content="Mariem Bejaoui — Data Analyst & Analytics Engineer">
+<meta property="og:description" content="SQL · Python · Power BI · Data Engineering — Actuellement stagiaire E-commerce Data Analyst chez RIMOWA, Groupe LVMH.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23120F0C'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-size='24' fill='%23E3C383' text-anchor='middle'%3EMB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --noir:#120F0C;
+  --noir-2:#1C1812;
+  --ivoire:#F6F1E6;
+  --ivoire-2:#ECE3CF;
+  --saphir:#28395E;
+  --saphir-clair:#4A5F8E;
+  --or:#B68A46;
+  --or-clair:#E3C383;
+  --or-fonce:#8B6A2E;
+  --encre:#211D19;
+  --creme:#EDE6D6;
+  --sable:#8E8576;
+  --sable-clair:#B3A98F;
+  --ligne-d:rgba(182,138,70,.28);
+  --ligne-l:rgba(139,106,46,.32);
+  --nav-h:80px;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--ivoire);
+  color:var(--encre);
+  font-family:'Inter',sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Cormorant',serif;font-weight:500;margin:0;color:inherit;}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 48px;}
+section{scroll-margin-top:var(--nav-h);}
+.sr-only{position:absolute;left:-9999px;}
+.skip-link{
+  position:absolute;top:-50px;left:16px;z-index:200;
+  background:var(--or-clair);color:var(--noir);padding:10px 16px;
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;transition:top .2s ease;
+}
+.skip-link:focus{top:12px;}
+:focus-visible{outline:2px solid var(--or-clair);outline-offset:3px;}
+
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  margin:0 0 18px;
+  display:flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:"";display:inline-block;width:22px;height:1px;background:currentColor;opacity:.7;}
+.eyebrow--dark{color:var(--or-fonce);}
+.eyebrow--light{color:var(--or-clair);}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:15px 26px;border:1px solid currentColor;
+  transition:background .35s ease,color .35s ease,border-color .35s ease;
+  cursor:pointer;background:none;
+}
+.btn--solid{background:var(--or);color:var(--noir);border-color:var(--or);}
+.btn--solid:hover{background:var(--or-clair);border-color:var(--or-clair);}
+.btn--ghost-light{color:var(--creme);border-color:rgba(237,230,214,.45);}
+.btn--ghost-light:hover{border-color:var(--or-clair);color:var(--or-clair);}
+
+/* reveal-on-scroll */
+.reveal{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+.js .reveal{opacity:0;transform:translateY(22px);}
+.js .reveal.is-visible{opacity:1;transform:translateY(0);}
+.reveal-stagger > *{transition-delay:calc(var(--i,0) * 90ms);}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  transition:background .4s ease,border-color .4s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.is-scrolled{background:rgba(18,15,12,.92);backdrop-filter:blur(10px);border-color:var(--ligne-d);}
+.nav__inner{
+  width:100%;max-width:var(--maxw);margin:0 auto;padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav__mark{
+  font-family:'Cormorant',serif;font-size:1.5rem;letter-spacing:.06em;
+  color:var(--creme);border:1px solid var(--ligne-d);
+  width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+}
+.nav__links{display:flex;gap:38px;}
+.nav__links a{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--creme);position:relative;padding-bottom:6px;
+}
+.nav__links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--or-clair);
+  transition:width .35s ease;
+}
+.nav__links a:hover::after,.nav__links a:focus-visible::after{width:100%;}
+.nav__toggle{
+  display:none;background:none;border:1px solid var(--ligne-d);width:46px;height:46px;
+  flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;
+}
+.nav__toggle span{width:18px;height:1px;background:var(--creme);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  background:var(--noir);
+  background-image:
+    radial-gradient(ellipse 900px 600px at 85% 8%, rgba(40,57,94,.35), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 8% 95%, rgba(182,138,70,.12), transparent 60%);
+  padding:calc(var(--nav-h) + 56px) 0 0;
+  position:relative;
+  overflow:hidden;
+}
+.hero__inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 48px 90px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;
+}
+.hero__name{
+  font-size:clamp(3.4rem,8vw,6.4rem);
+  line-height:.98;color:var(--creme);font-weight:500;
+}
+.hero__quote{
+  font-family:'Cormorant',serif;font-style:italic;font-weight:400;
+  font-size:clamp(1.15rem,1.6vw,1.4rem);color:var(--sable-clair);
+  margin:26px 0 32px;max-width:30ch;line-height:1.45;
+}
+.hero__status{
+  display:inline-flex;align-items:center;gap:12px;
+  border:1px solid var(--saphir-clair);padding:11px 20px 11px 16px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--creme);
+  margin-bottom:40px;letter-spacing:.02em;
+}
+.hero__status strong{color:var(--or-clair);font-weight:500;}
+.hero__status-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--or-clair);flex:none;
+  box-shadow:0 0 0 0 rgba(227,195,131,.6);
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(227,195,131,.55);}
+  70%{box-shadow:0 0 0 7px rgba(227,195,131,0);}
+  100%{box-shadow:0 0 0 0 rgba(227,195,131,0);}
+}
+.hero__cta{display:flex;gap:16px;flex-wrap:wrap;}
+
+.hero__portrait{position:relative;}
+.hero__frame{
+  border:1px solid var(--ligne-d);padding:14px;
+}
+.hero__frame-inner{
+  aspect-ratio:4/5;overflow:hidden;border:1px solid rgba(237,230,214,.18);
+  position:relative;
+}
+.hero__frame-inner img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  filter:contrast(1.05) saturate(1.04);
+}
+.hero__caption{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-top:14px;padding-top:12px;border-top:1px solid var(--ligne-d);
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sable);
+}
+.hero__caption span:last-child{color:var(--or-clair);}
+
+/* ticker */
+.ticker{
+  background:var(--noir-2);border-top:1px solid var(--ligne-d);border-bottom:1px solid var(--ligne-d);
+  overflow:hidden;white-space:nowrap;padding:16px 0;
+}
+.ticker__track{display:inline-flex;align-items:center;gap:34px;animation:scrollLeft 32s linear infinite;}
+.ticker:hover .ticker__track{animation-play-state:paused;}
+.ticker__track span{
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--sable-clair);
+}
+.ticker__track span.dot{color:var(--or);margin:0 17px;}
+@keyframes scrollLeft{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ============================================================
+   PROFIL
+   ============================================================ */
+.profil{padding:130px 0;background:var(--ivoire);}
+.profil__grid{display:grid;grid-template-columns:1.3fr .9fr;gap:72px;}
+.profil h2{font-size:clamp(1.8rem,3vw,2.5rem);max-width:18ch;margin-bottom:38px;}
+.profil blockquote{
+  margin:0 0 28px;padding-left:26px;border-left:2px solid var(--or);
+  font-family:'Cormorant',serif;font-style:italic;font-size:1.35rem;color:var(--encre);
+  line-height:1.5;
+}
+.profil p.lead{font-size:1.02rem;color:#3a352f;max-width:62ch;}
+.profil__stats{display:flex;flex-direction:column;gap:28px;padding-top:6px;}
+.profil__stat{border-top:1px solid var(--ligne-l);padding-top:18px;}
+.profil__stat .num{
+  font-family:'Cormorant',serif;font-size:2.6rem;color:var(--or-fonce);display:block;line-height:1;
+}
+.profil__stat .label{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--sable);
+}
+
+/* ============================================================
+   PARCOURS / DOSSIERS
+   ============================================================ */
+.parcours{padding:130px 0 140px;background:var(--ivoire-2);}
+.parcours h2{font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:64px;max-width:22ch;}
+.timeline{position:relative;display:flex;flex-direction:column;gap:46px;}
+.timeline::before{
+  content:"";position:absolute;left:23px;top:10px;bottom:10px;width:1px;background:var(--ligne-l);
+}
+.dossier{
+  position:relative;margin-left:64px;
+  background:var(--ivoire);border:1px solid var(--ligne-l);padding:42px 44px 38px;
+}
+.dossier::before,.dossier::after{
+  content:"";position:absolute;width:16px;height:16px;border-top:1px solid var(--or);border-left:1px solid var(--or);
+}
+.dossier::before{top:-1px;left:-1px;}
+.dossier::after{bottom:-1px;right:-1px;border:none;border-bottom:1px solid var(--or);border-right:1px solid var(--or);}
+.dossier__seal{
+  position:absolute;left:-64px;top:38px;width:30px;height:30px;border-radius:50%;
+  border:1px solid var(--or);background:var(--ivoire-2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant',serif;font-size:.85rem;color:var(--or-fonce);
+}
+.dossier--current{border-color:var(--saphir-clair);}
+.dossier--current::before,.dossier--current::after{border-color:var(--saphir);}
+.dossier--current .dossier__seal{border-color:var(--saphir);color:var(--saphir);background:var(--ivoire);}
+
+.dossier__top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:18px;}
+.dossier__ref{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--or-fonce);display:flex;align-items:center;gap:8px;
+}
+.dossier--current .dossier__ref{color:var(--saphir);}
+.dossier__ref .live-dot{width:6px;height:6px;border-radius:50%;background:var(--saphir);animation:pulse 2.4s infinite;}
+.dossier__period{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--sable);white-space:nowrap;}
+
+.dossier__role-line{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px;}
+.dossier h3{font-size:1.7rem;color:var(--encre);}
+.dossier__maison-suffix{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--sable);font-weight:400;}
+.dossier__role{font-family:'Inter',sans-serif;font-size:.96rem;font-weight:500;color:var(--or-fonce);margin-bottom:20px;}
+.dossier--current .dossier__role{color:var(--saphir);}
+
+.dossier__context{
+  font-family:'Cormorant',serif;font-style:italic;font-size:1.06rem;color:#4a443b;
+  line-height:1.55;margin-bottom:22px;max-width:64ch;
+}
+.dossier__points{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
+.dossier__points li{
+  padding-left:20px;position:relative;font-size:.94rem;color:#3a352f;line-height:1.55;
+}
+.dossier__points li::before{content:"—";position:absolute;left:0;color:var(--or);}
+
+.dossier__resultats{
+  font-size:.92rem;color:#3a352f;margin-bottom:22px;padding-top:16px;border-top:1px solid var(--ligne-l);
+}
+.dossier__resultats b{
+  font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:.68rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--or-fonce);display:block;margin-bottom:8px;
+}
+.dossier__stack{display:flex;flex-wrap:wrap;gap:8px;}
+.dossier__stack span{
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--ligne-l);padding:5px 10px;color:#4a443b;
+}
+
+/* ============================================================
+   EXPERTISE (spec sheet)
+   ============================================================ */
+.expertise{padding:130px 0;background:var(--noir);}
+.expertise h2{font-size:clamp(1.8rem,3vw,2.5rem);color:var(--creme);margin-bottom:56px;max-width:20ch;}
+.spec-sheet{border-top:1px solid var(--ligne-d);}
+.spec-row{
+  display:grid;grid-template-columns:240px 1fr;gap:32px;
+  padding:24px 0;border-bottom:1px solid var(--ligne-d);align-items:baseline;
+}
+.spec-label{
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--or-clair);
+}
+.spec-value{font-size:.98rem;color:var(--creme);line-height:1.7;}
+
+/* ============================================================
+   FORMATION + LANGUES/ASSOCIATIF
+   ============================================================ */
+.formation{padding:130px 0;background:var(--ivoire);}
+.formation h2{font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:50px;}
+.formation-list{display:flex;flex-direction:column;}
+.formation-list li{
+  display:flex;gap:36px;padding:26px 0;border-top:1px solid var(--ligne-l);align-items:baseline;
+}
+.formation-list li:last-child{border-bottom:1px solid var(--ligne-l);}
+.formation-year{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--or-fonce);
+  white-space:nowrap;min-width:108px;
+}
+.formation-list h3{font-size:1.25rem;font-weight:500;margin-bottom:4px;}
+.formation-list p{font-size:.88rem;color:var(--sable);}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:80px;}
+.split h3{
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--or-fonce);margin-bottom:28px;font-weight:500;
+}
+.langue-row{display:flex;align-items:center;gap:16px;margin-bottom:18px;}
+.langue-row .nom{width:96px;font-size:.9rem;flex:none;}
+.langue-row .bar{flex:1;height:3px;background:var(--ligne-l);position:relative;}
+.langue-row .bar span{position:absolute;left:0;top:0;height:100%;background:var(--or);}
+.langue-row .niv{
+  font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--sable);width:96px;text-align:right;flex:none;
+}
+.assoc-list li{
+  padding:12px 0;border-top:1px solid var(--ligne-l);font-size:.92rem;display:flex;gap:10px;
+}
+.assoc-list li:last-child{border-bottom:1px solid var(--ligne-l);}
+.assoc-list b{color:var(--or-fonce);font-weight:600;}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{background:var(--noir);padding:130px 0 60px;text-align:center;}
+.contact__seal{
+  width:74px;height:74px;border-radius:50%;border:1px solid var(--or);margin:0 auto 32px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant',serif;font-size:1.6rem;color:var(--or-clair);
+}
+.contact h2{font-size:clamp(2rem,4vw,3rem);color:var(--creme);margin-bottom:18px;}
+.contact__lead{color:var(--sable-clair);max-width:50ch;margin:0 auto 56px;font-size:1rem;}
+.contact__grid{
+  max-width:640px;margin:0 auto 56px;border-top:1px solid var(--ligne-d);text-align:left;
+}
+.contact__row{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:20px 4px;border-bottom:1px solid var(--ligne-d);flex-wrap:wrap;
+}
+.contact__row .k{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sable);
+}
+.contact__row .v{
+  font-family:'Cormorant',serif;font-size:1.15rem;color:var(--creme);position:relative;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.contact__row a.v{border-bottom:1px solid transparent;transition:border-color .3s ease,color .3s ease;}
+.contact__row a.v:hover{border-color:var(--or-clair);color:var(--or-clair);}
+.copy-btn{
+  background:none;border:1px solid var(--ligne-d);color:var(--sable);width:28px;height:28px;
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;cursor:pointer;flex:none;
+  display:inline-flex;align-items:center;justify-content:center;transition:border-color .3s,color .3s;
+}
+.copy-btn:hover{border-color:var(--or-clair);color:var(--or-clair);}
+.contact__bottom{
+  display:flex;flex-direction:column;align-items:center;gap:40px;padding-top:8px;
+}
+.contact__copyright{
+  margin-top:50px;padding-top:24px;border-top:1px solid var(--ligne-d);width:100%;
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;color:var(--sable);
+}
+
+/* toast */
+.toast{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--or-clair);color:var(--noir);padding:12px 22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.06em;
+  opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s ease;z-index:300;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:980px){
+  .hero__inner{grid-template-columns:1fr;gap:48px;}
+  .hero__portrait{max-width:360px;}
+  .profil__grid{grid-template-columns:1fr;gap:48px;}
+  .split{grid-template-columns:1fr;gap:48px;}
+  .spec-row{grid-template-columns:1fr;gap:8px;}
+}
+@media (max-width:760px){
+  .container,.nav__inner,.hero__inner,.profil,.parcours,.expertise,.formation,.contact{padding-left:26px;padding-right:26px;}
+  .nav__links{
+    position:fixed;top:var(--nav-h);left:0;right:0;background:var(--noir);
+    flex-direction:column;align-items:flex-start;gap:0;border-top:1px solid var(--ligne-d);
+    max-height:0;overflow:hidden;transition:max-height .4s ease;
+  }
+  .nav__links.is-open{max-height:340px;}
+  .nav__links a{width:100%;padding:18px 26px;border-bottom:1px solid var(--ligne-d);}
+  .nav__toggle{display:flex;}
+  .timeline::before{left:13px;}
+  .dossier{margin-left:40px;padding:32px 24px 28px;}
+  .dossier__seal{left:-40px;width:24px;height:24px;font-size:.7rem;}
+  .profil,.parcours,.expertise,.formation,.contact{padding-top:90px;padding-bottom:90px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<a href="#profil" class="skip-link">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__mark" aria-label="Retour en haut">MB</a>
+    <nav class="nav__links" id="navLinks" aria-label="Navigation principale">
+      <a href="#profil">Profil</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#formation">Formation</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow eyebrow--light">Data Analyst — Analytics Engineer</p>
+      <h1 class="hero__name">Mariem<br>Bejaoui</h1>
+      <p class="hero__quote">La précision d'un geste d'horloger, appliquée à la donnée.</p>
+      <div class="hero__status">
+        <span class="hero__status-dot" aria-hidden="true"></span>
+        <span>Actuellement — Stagiaire E-commerce Data Analyst, <strong>RIMOWA</strong> · Groupe LVMH</span>
+      </div>
+      <div class="hero__cta">
+        <a href="#parcours" class="btn btn--ghost-light">Découvrir mon parcours</a>
+        <a href="#contact" class="btn btn--solid">Me contacter</a>
+      </div>
+    </div>
+    <div class="hero__portrait">
+      <div class="hero__frame">
+        <div class="hero__frame-inner">
+          <img src="assets\portrait.png" alt="Portrait de Mariem Bejaoui">
+        </div>
+        <div class="hero__caption">
+          <span>Mariem Bejaoui</span>
+          <span>Paris, 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track" id="tickerTrack"></div>
+</div>
+
+<section id="profil" class="profil">
+  <div class="container profil__grid">
+    <div class="reveal">
+      <p class="eyebrow eyebrow--dark">Profil</p>
+      <h2>Une lecture précise de la donnée, au service de la décision</h2>
+      <blockquote>Donner de la clarté à la donnée, pour que chaque décision s'appuie sur une base juste.</blockquote>
+      <p class="lead">Data Analyst depuis plus de trois ans, j'interviens sur l'ensemble de la chaîne de valeur de la donnée&nbsp;: structuration des pipelines, modélisation, contrôle qualité et restitution via des dashboards décisionnels. J'ai construit mon expertise dans des environnements industriels et logistiques exigeants — drones autonomes, robotique embarquée, e-commerce — avant de rejoindre RIMOWA, maison de maroquinerie de voyage du groupe LVMH, où j'applique aujourd'hui cette même rigueur aux enjeux du commerce en ligne dans l'univers du luxe.</p>
+    </div>
+    <div class="profil__stats reveal">
+      <div class="profil__stat">
+        <span class="num">3+</span>
+        <span class="label">Années d'expérience</span>
+      </div>
+      <div class="profil__stat">
+        <span class="num">4</span>
+        <span class="label">Maisons &amp; entreprises accompagnées</span>
+      </div>
+      <div class="profil__stat">
+        <span class="num">FR · EN · AR · ES</span>
+        <span class="label">Langues de travail</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours" class="parcours">
+  <div class="container">
+    <p class="eyebrow eyebrow--dark">Parcours</p>
+    <h2 class="reveal">Dossiers d'expérience</h2>
+
+    <div class="timeline">
+
+      <article class="dossier dossier--current reveal">
+        <div class="dossier__seal" aria-hidden="true">MB</div>
+        <div class="dossier__top">
+          <span class="dossier__ref"><span class="live-dot" aria-hidden="true"></span>Dossier N°04 — En cours</span>
+          <span class="dossier__period">6 mois</span>
+        </div>
+        <div class="dossier__role-line">
+          <h3>RIMOWA</h3>
+          <span class="dossier__maison-suffix">— Groupe LVMH</span>
+        </div>
+        <p class="dossier__role">Stagiaire E-commerce Data Analyst</p>
+        <p class="dossier__context">Au sein du pôle e-commerce de RIMOWA, maison de maroquinerie de voyage du groupe LVMH, j'accompagne les équipes digitales dans l'analyse de la performance en ligne et de l'expérience client.</p>
+        <ul class="dossier__points">
+          <li>Suivi et analyse des indicateurs de performance e-commerce (trafic, conversion, comportement d'achat).</li>
+          <li>Construction et fiabilisation de tableaux de bord pour le pilotage de l'activité digitale.</li>
+          <li>Collaboration avec les équipes Digital, Marketing et Supply Chain pour structurer la donnée client.</li>
+        </ul>
+        <div class="dossier__stack">
+          <span>SQL</span><span>Python</span><span>Power BI</span><span>E-commerce Analytics</span>
+        </div>
+      </article>
+
+      <article class="dossier reveal">
+        <div class="dossier__seal" aria-hidden="true">MB</div>
+        <div class="dossier__top">
+          <span class="dossier__ref">Dossier N°03</span>
+          <span class="dossier__period">1 an</span>
+        </div>
+        <div class="dossier__role-line"><h3>Farness</h3></div>
+        <p class="dossier__role">Data Analyst</p>
+        <p class="dossier__context">Farness conçoit des solutions de drones autonomes embarquant des capteurs IoT. J'y ai structuré et analysé les données collectées en vol pour fiabiliser le pilotage des opérations et la performance des systèmes autonomes.</p>
+        <ul class="dossier__points">
+          <li>Conception de pipelines ETL/ELT et modélisation des données en couches (staging, transformation, exposition).</li>
+          <li>Mise en place de contrôles qualité automatisés garantissant la fiabilité des analyses.</li>
+          <li>Dashboards Power BI pour le suivi des KPI opérationnels liés aux performances des drones.</li>
+          <li>Modèles de détection d'anomalies et de vision par ordinateur pour anticiper les défaillances.</li>
+        </ul>
+        <p class="dossier__resultats"><b>Résultats</b>Pipelines stabilisés, dashboards temps réel et architecture data centralisée facilitant l'exploitation IA.</p>
+        <div class="dossier__stack">
+          <span>Python</span><span>Pandas / NumPy</span><span>OpenCV</span><span>SQL</span><span>Scikit-learn</span><span>Power BI</span><span>Docker</span><span>Git</span><span>Linux</span>
+        </div>
+      </article>
+
+      <article class="dossier reveal">
+        <div class="dossier__seal" aria-hidden="true">MB</div>
+        <div class="dossier__top">
+          <span class="dossier__ref">Dossier N°02</span>
+          <span class="dossier__period">2 ans</span>
+        </div>
+        <div class="dossier__role-line"><h3>Enova Robotics</h3></div>
+        <p class="dossier__role">Data / Business Analyst — Freelance</p>
+        <p class="dossier__context">Enova Robotics développe des systèmes de robotique autonome embarquée. En freelance, j'ai accompagné les équipes opérationnelles et produit dans la structuration et la restitution des données métier.</p>
+        <ul class="dossier__points">
+          <li>Requêtes SQL complexes et data marts orientés métier pour fiabiliser les reportings.</li>
+          <li>Dashboards Power BI et Tableau pour le suivi des KPI opérationnels et produit.</li>
+          <li>Modèles de classification et clustering pour anticiper comportements et anomalies.</li>
+          <li>Restitution des analyses aux équipes métier et direction — storytelling avec la donnée.</li>
+        </ul>
+        <p class="dossier__resultats"><b>Résultats</b>Reporting structuré, données plus fiables et temps d'analyse réduit grâce à l'automatisation des requêtes et pipelines SQL.</p>
+        <div class="dossier__stack">
+          <span>SQL</span><span>Python</span><span>Scikit-learn</span><span>Power BI</span><span>Tableau</span><span>Matplotlib / Seaborn</span>
+        </div>
+      </article>
+
+      <article class="dossier reveal">
+        <div class="dossier__seal" aria-hidden="true">MB</div>
+        <div class="dossier__top">
+          <span class="dossier__ref">Dossier N°01</span>
+          <span class="dossier__period">6 mois</span>
+        </div>
+        <div class="dossier__role-line"><h3>Decade</h3></div>
+        <p class="dossier__role">Data Analyst</p>
+        <p class="dossier__context">Decade est une entreprise spécialisée en e-commerce. J'y ai contribué au développement des outils décisionnels, à la segmentation client et à l'analyse des comportements utilisateurs.</p>
+        <ul class="dossier__points">
+          <li>Pipelines de préparation de données — cleaning, transformation, feature engineering.</li>
+          <li>Dashboards Power BI pour le suivi des KPI e-commerce et du comportement utilisateurs.</li>
+          <li>Segmentation client par clustering pour identifier des profils types d'acheteurs.</li>
+          <li>Conception d'un assistant conversationnel basé sur NLP &amp; LLM.</li>
+        </ul>
+        <p class="dossier__resultats"><b>Résultats</b>Segmentation robuste orientant la stratégie marketing et amélioration de la qualité des données et de l'expérience utilisateur.</p>
+        <div class="dossier__stack">
+          <span>Python</span><span>Pandas / NumPy</span><span>Scikit-learn</span><span>NLP / LLM</span><span>Power BI</span><span>SQL</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="expertise" class="expertise">
+  <div class="container">
+    <p class="eyebrow eyebrow--light">Expertise</p>
+    <h2 class="reveal">Compétences techniques</h2>
+    <div class="spec-sheet reveal">
+      <div class="spec-row">
+        <span class="spec-label">SQL &amp; Modélisation</span>
+        <span class="spec-value">SQL avancé · Data Warehouse · ETL/ELT · Modélisation de données</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Langages</span>
+        <span class="spec-value">Python (Pandas, NumPy, Scikit-learn) · Java</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Visualisation &amp; BI</span>
+        <span class="spec-value">Power BI (DAX) · Matplotlib · Seaborn · Tableau</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Data Engineering</span>
+        <span class="spec-value">Pipelines ETL/ELT · dbt · Spark · Kafka · Hadoop · Docker · Git · Linux</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">IA &amp; Machine Learning</span>
+        <span class="spec-value">Classification · Clustering · Séries temporelles · NLP · LLM · Computer Vision</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-label">Méthodologies</span>
+        <span class="spec-value">Agile Scrum · Data Quality · Documentation technique</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formation" class="formation">
+  <div class="container">
+    <p class="eyebrow eyebrow--dark">Formation</p>
+    <h2 class="reveal">Parcours académique</h2>
+    <ul class="formation-list reveal">
+      <li>
+        <span class="formation-year">2025—2026</span>
+        <div>
+          <h3>Master Data Science &amp; Business Intelligence</h3>
+          <p>EDC Paris Business School, Paris</p>
+        </div>
+      </li>
+      <li>
+        <span class="formation-year">2021—2024</span>
+        <div>
+          <h3>Génie Informatique — Systèmes Intelligents IA (EURACE)</h3>
+          <p>École Nationale d'Ingénieurs de Sousse, Tunisie</p>
+        </div>
+      </li>
+      <li>
+        <span class="formation-year">2019—2021</span>
+        <div>
+          <h3>Cycle Préparatoire Mathématiques-Physique</h3>
+          <p>École Préparatoire de Nabeul, Tunisie</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="split">
+      <div class="reveal">
+        <h3>Langues</h3>
+        <div class="langue-row">
+          <span class="nom">Français</span>
+          <div class="bar"><span style="width:92%"></span></div>
+          <span class="niv">Avancé</span>
+        </div>
+        <div class="langue-row">
+          <span class="nom">Anglais</span>
+          <div class="bar"><span style="width:92%"></span></div>
+          <span class="niv">Avancé</span>
+        </div>
+        <div class="langue-row">
+          <span class="nom">Arabe</span>
+          <div class="bar"><span style="width:100%"></span></div>
+          <span class="niv">Natif</span>
+        </div>
+        <div class="langue-row">
+          <span class="nom">Espagnol</span>
+          <div class="bar"><span style="width:55%"></span></div>
+          <span class="niv">Intermédiaire</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3>Vie associative</h3>
+        <ul class="assoc-list">
+          <li><b>Junior Entreprise</b> — Cheffe d'équipe</li>
+          <li><b>ACM</b> — Secrétaire Générale</li>
+          <li><b>IEEE</b> — Chef de projet</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" class="contact">
+  <div class="container">
+    <div class="contact__seal reveal" aria-hidden="true">MB</div>
+    <h2 class="reveal">Entrons en contact</h2>
+    <p class="contact__lead reveal">Disponible pour des missions et opportunités en Data Analytics / Analytics Engineering, à Paris et en Île-de-France.</p>
+
+    <div class="contact__grid reveal">
+      <div class="contact__row">
+        <span class="k">Email</span>
+        <span class="v">
+          <a class="v" href="mailto:m.bjaoui@etudiant.edcparis.edu" id="emailLink">m.bjaoui@etudiant.edcparis.edu</a>
+          <button class="copy-btn" id="copyEmailBtn" aria-label="Copier l'adresse email" title="Copier l'adresse email">⧉</button>
+        </span>
+      </div>
+      <div class="contact__row">
+        <span class="k">Téléphone</span>
+        <a class="v" href="tel:+33753108788">+33 7 53 10 87 88</a>
+      </div>
+      <div class="contact__row">
+        <span class="k">LinkedIn</span>
+        <a class="v" href="https://linkedin.com/in/Mariem-BJAOUI" target="_blank" rel="noopener">linkedin.com/in/Mariem-BJAOUI ↗</a>
+      </div>
+      <div class="contact__row">
+        <span class="k">Localisation</span>
+        <span class="v">Île-de-France, France</span>
+      </div>
+    </div>
+
+    <div class="contact__bottom reveal">
+      <a class="btn btn--solid" href="assets\CV_Mariem_BJAOUI.pdf" download>Télécharger le CV</a>
+    </div>
+
+    <div class="contact__copyright">© <span id="year"></span> Mariem Bejaoui — Paris</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+
+  // Year
+  try{
+    document.getElementById('year').textContent = new Date().getFullYear();
+  }catch(e){}
+
+  // Ticker — build doubled track for seamless loop
+  try{
+    var items = ["3+ ans d'expérience","SQL · Python · Power BI","Data Analytics — Luxe &amp; Industrie","FR · EN · AR · ES","Île-de-France"];
+    var track = document.getElementById('tickerTrack');
+    var html = '';
+    for (var r=0;r<2;r++){
+      for (var i=0;i<items.length;i++){ html += '<span>'+items[i]+'</span><span class="dot">•</span>'; }
+    }
+    track.innerHTML = html;
+  }catch(e){}
+
+  // Nav scroll state
+  try{
+    var nav = document.getElementById('nav');
+    function onScroll(){
+      if (window.scrollY > 40) nav.classList.add('is-scrolled');
+      else nav.classList.remove('is-scrolled');
+    }
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }catch(e){}
+
+  // Mobile nav toggle
+  try{
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    toggle.addEventListener('click', function(){
+      var open = links.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    var navAnchors = links.querySelectorAll('a');
+    for (var n=0;n<navAnchors.length;n++){
+      navAnchors[n].addEventListener('click', function(){
+        links.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded','false');
+      });
+    }
+  }catch(e){}
+
+  // Reveal on scroll
+  try{
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduced || !('IntersectionObserver' in window)){
+      for (var j=0;j<els.length;j++){ els[j].classList.add('is-visible'); }
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        for (var k=0;k<entries.length;k++){
+          if (entries[k].isIntersecting){
+            entries[k].target.classList.add('is-visible');
+            io.unobserve(entries[k].target);
+          }
+        }
+      }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+      for (var m=0;m<els.length;m++){ io.observe(els[m]); }
+    }
+  }catch(e){
+    // Safety net: if the reveal script itself fails, force all content visible
+    try{
+      var fallbackEls = document.querySelectorAll('.reveal');
+      for (var f=0;f<fallbackEls.length;f++){ fallbackEls[f].classList.add('is-visible'); }
+    }catch(e2){}
+  }
+
+  // Copy email
+  try{
+    var copyBtn = document.getElementById('copyEmailBtn');
+    var toast = document.getElementById('toast');
+    var toastTimer;
+    copyBtn.addEventListener('click', function(){
+      var email = 'm.bjaoui@etudiant.edcparis.edu';
+      function showToast(msg){
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(email).then(function(){
+          showToast('Adresse copiée');
+        }).catch(function(){
+          showToast(email);
+        });
+      } else {
+        showToast(email);
+      }
+    });
+  }catch(e){}
+
+})();
+</script>
+</body>
+</html>
